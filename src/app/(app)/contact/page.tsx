@@ -1,7 +1,7 @@
 import React from 'react'
-import { getSession } from '../_lib/cookie'
-import { getContacts } from '../api/contact';
-import ContactList from '../_components/ContactList';
+import { getSession } from '../../_lib/cookie'
+import { getContacts } from '../../api/contact';
+import ContactList from '../../_components/ContactList';
 
 export default async function ContactPage() {
 

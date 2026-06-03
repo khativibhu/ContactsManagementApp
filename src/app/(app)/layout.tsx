@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 //import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import NavBar from "./_components/navbar";
-import StaticNavBar from "./_components/StaticNavBar";
+import NavBar from ".././_components/navbar";
 
 
 export const metadata: Metadata = {
@@ -16,11 +14,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en" >  
-      <body>
-        {children}
-      </body>
-    </html>
+        <div className="min-h-screen bg-gray-50">
+          <NavBar/>
+          <main className="container mx-auto px-4 py-8">
+            {children}
+          </main>
+        </div>
   );
 }
