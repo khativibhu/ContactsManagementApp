@@ -1,6 +1,6 @@
 "use server";  //because we are creating server actions here in this file
 import { revalidatePath } from "next/cache";
-import { createContact, deleteContact, updateContact } from "../api/contact";
+import { createContact, deleteContact, updateContact } from "../db/contact";
 import { getSession } from "../_lib/cookie";
 import { ContactType } from "../_types/contact";
 
@@ -13,11 +13,11 @@ export const createContactAction = async(prevState: any,formData: FormData) => {
     const newContact: ContactType = {
       name: formData.get("name") as string,
       email: formData.get("email") as string,
-      userId: user?.id,
+      userId: user?.id!,
     };
 
     try{
-      await createContact(newContact);  //API call
+      await createContact(newContact);  //DB call
       revalidatePath("/contact");
       return { success: true };
     }
@@ -30,18 +30,18 @@ export const createContactAction = async(prevState: any,formData: FormData) => {
 
 export const updateContactAction = async(prevState: any,formData: FormData) => {
     
-    const id = formData.get("id") as string;
+    const id = Number(formData.get("id"));
 
     const user = await getSession(); //get loggedin user
 
     const updatedContact: ContactType = {
       name: formData.get("name") as string,
       email: formData.get("email") as string,
-      userId: user?.id,
+      userId: user?.id!,
     };
 
     try{
-      await updateContact(id, updatedContact);  //API call
+      await updateContact(id, updatedContact);  //DB call
       revalidatePath("/contact");
       return { success: true };
     }
@@ -54,10 +54,10 @@ export const updateContactAction = async(prevState: any,formData: FormData) => {
 
 export const deleteContactAction = async(prevState: any,formData: FormData) => {
 
-  const id = formData.get("id") as string;
+  const id = Number(formData.get("id"));
 
   try{
-    await deleteContact(id); //delete Contact API call
+    await deleteContact(id); //delete Contact DB call
     revalidatePath("/contact");  //revalidates the cache as maybe the contact got cached and is still in cache after deleting it
     return { success: true }; 
    }

@@ -18,7 +18,7 @@ export default function RegisterForm() {
    const handleRegister: SubmitHandler<RegisterFormData> = async(data: any) => {
     console.log(data.name);
     console.log(data.email);
-    const res = await axios.post("http://localhost:3000/register/api", data);
+    const res = await axios.post("http://localhost:3000/register/db", data);  //API call
 
     console.log(res);
     reset();

@@ -1,6 +1,6 @@
 import React from 'react'
 import { getSession } from '../../_lib/cookie'
-import { getContacts } from '../../api/contact';
+import { getContacts } from '../../db/contact';
 import ContactList from '../../_components/ContactList';
 
 export default async function ContactPage() {
@@ -18,7 +18,7 @@ export default async function ContactPage() {
     )
   }
   
-  const contacts = await getContacts(user?.id);
+  const contacts = await getContacts(user?.id!);
   if(!contacts || contacts.length === 0) {
     return(
       <div>

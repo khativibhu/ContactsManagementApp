@@ -1,8 +1,4 @@
-"use client";
 import React from "react";
-
-export const dynamic = "force-static";
-
 
 export default function AboutPage() {
   return (
