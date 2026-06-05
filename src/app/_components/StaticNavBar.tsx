@@ -6,7 +6,7 @@ export default async function StaticNavBar() {
 
   return (
     <nav className="bg-white shadow-sm">
-       <div className="container mx-auto p-4 flex justify-between items-center">
+       <div className="container mx-auto p-3 flex justify-between items-center">
           
           <div className="flex gap-8">
            <Link href="/" className="text-xl font-bold text-blue-600">
@@ -17,6 +17,9 @@ export default async function StaticNavBar() {
             </Link>
             <Link href="/features" className="text-xl font-bold">
               Features
+            </Link>
+            <Link href="/statistics" className="text-xl font-bold">
+              Statistics
             </Link>
           </div>
 

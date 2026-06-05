@@ -1,11 +1,11 @@
 import ContactForm from '@/app/_components/ContactForm'
 import { updateContactAction } from '@/app/actions/contact'
-import { getContactById } from '@/app/api/contact';
+import { getContactById } from '@/app/db/contact';
 import React, { use } from 'react'
 
 export default function EditContactPage( {params}: {params: Promise<{id: string}> } ) {
   const {id} = use(params);
-  const contact = use(getContactById(id) );
+  const contact = use(getContactById(Number(id)) );
 
   return (
      <div className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md">

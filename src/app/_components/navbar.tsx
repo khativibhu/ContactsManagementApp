@@ -8,7 +8,7 @@ export default async function NavBar() {
 
   return (
     <nav className="bg-white shadow-sm">
-       <div className="container mx-auto p-4 flex justify-between items-center">
+       <div className="container mx-auto px-3 py-1.5 flex justify-between items-center">
           <div className="flex gap-8">
            <Link href="/" className="text-xl font-bold text-blue-600">
              Contact Manager
@@ -18,6 +18,9 @@ export default async function NavBar() {
             </Link>
             <Link href="/features" className="text-xl font-bold">
               Features
+            </Link>
+            <Link href="/statistics" className="text-xl font-bold">
+              Statistics
             </Link>
           </div>
 
