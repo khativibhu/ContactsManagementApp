@@ -8,11 +8,16 @@ import { getUsersByEmailAndPassword } from "../db/auth";
 
 //const API_URL = "http://localhost:3001";
 
-export const loginAction = async (formData: FormData) => {
+type LoginActionInputType = {
+  email: string;
+  password: string;
+};
+
+export const loginAction = async ({email, password}: LoginActionInputType) => {
   try{
     const response = await getUsersByEmailAndPassword( {
-                                           email: formData.get("email") as string,
-                                           password: formData.get("password") as string
+                                           email: email,
+                                           password: password
                                            } );     //DB call
     
     const user:UserType | undefined = response;
@@ -21,13 +26,12 @@ export const loginAction = async (formData: FormData) => {
     //set user in the cookies
     await setSession({name: user.name, email: user.email, id: user.id});
 
-    redirect("/contact");
+    return {success: true};
   }
-  catch(err){
-     if(err instanceof Error){
-       throw err;
+  catch(error){
+     if(error instanceof Error){
+       throw error;
      }
-     throw new Error("Failed to login");
   }
 }
 

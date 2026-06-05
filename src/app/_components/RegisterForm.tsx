@@ -21,6 +21,8 @@ export default function RegisterForm() {
     const res = await axios.post("http://localhost:3000/register/db", data);  //API call
 
     console.log(res);
+
+    document.getElementById("successMsg")!.innerHTML = "User registered successfully";
     reset();
   }  
 
@@ -57,7 +59,9 @@ export default function RegisterForm() {
           required
           className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm p-2"
            />
-      </div>
+      </div> 
+
+           <p id="successMsg" className="text-green-500 text-center mt-2"></p>
 
           <button type="submit" 
           className="mt-3 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
