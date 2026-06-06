@@ -1,36 +1,203 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Contacts Management App
 
-## Getting Started
+A modern contact management application built with Next.js, TypeScript, Drizzle ORM, and PostgreSQL. Users can securely register, log in, and manage their personal contacts through a clean and responsive interface.
 
-First, run the development server:
+## Features
+
+* User Registration and Authentication
+* Secure Session-Based Login
+* Create Contacts
+* View Contacts
+* Update Contacts
+* Delete Contacts
+* Protected Routes
+* Form Validation
+* PostgreSQL Database Integration
+* Server Actions with Next.js
+* Responsive UI
+
+## Tech Stack
+
+### Frontend
+
+* Next.js
+* React
+* TypeScript
+* Tailwind CSS
+* React Hook Form
+
+### Backend
+
+* Next.js Route Handlers
+* Server Actions
+
+### Database
+
+* PostgreSQL
+* Drizzle ORM
+
+### Authentication
+
+* Cookie-based Session Authentication
+
+---
+
+## Project Structure
+
+```text
+src/app/
+├── _components/
+├── _data/
+├── _lib/
+├── _types/
+      ├── contact.ts
+      ├── user.ts
+├── (app)/
+      ├── (auth)/
+      ├── contact/
+      ├── layout.tsx
+      ├── page.tsx  
+├── (public)/
+      ├── about/
+      ├── features/
+      ├── statistics/
+      ├── layout.tsx 
+├── actions/
+       ├── auth.ts
+       ├── contact.ts
+├── db/
+      ├──auth.ts
+      ├──contact.ts
+├── layout.tsx 
+
+src/db/
+├── schema.ts
+
+src
+├──index.ts
+```
+
+## Environment Variables
+
+Create a `.env` file in the root directory and add the following variables:
+
+```env
+DATABASE_URL=your_database_connection_string
+```
+
+Refer to `.env.example` for the complete list of required variables.
+
+---
+
+## Installation
+
+### 1. Clone the Repository
+
+```bash
+git clone <repository-url>
+cd contacts-management-app
+```
+
+### 2. Install Dependencies
+
+```bash
+npm install
+```
+
+### 3. Configure Environment Variables
+
+Create a `.env file using ``.env.example` as a reference.
+
+### 4. Run Database Migrations
+
+```bash
+npm run db:generate
+npm run db:migrate
+```
+
+### 5. Start Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The application will be available at:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```text
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Available Scripts
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Starts the development server.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run build
+```
 
-## Deploy on Vercel
+Builds the application for production.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run start
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Runs the production build.
+
+```bash
+npm run lint
+```
+
+Runs ESLint.
+
+---
+
+## Authentication Flow
+
+1. User registers an account.
+2. User logs in with email and password.
+3. Session data is stored in cookies.
+4. Protected pages validate the active session.
+5. Users can manage only their own contacts.
+
+---
+
+## Contact Management
+
+Authenticated users can:
+
+* Add new contacts
+* Edit existing contacts
+* Delete contacts
+* View their contact list
+
+Each contact is associated with the authenticated user.
+
+---
+
+## Future Improvements
+
+* Password Hashing (bcrypt)
+* Email Verification
+* Forgot Password Functionality
+* Search and Filter Contacts
+* Pagination
+* Profile Management
+* Contact Categories
+* Dark Mode
+* API Documentation
+
+---
+
+## License
+
+This project is licensed under the MIT License.
+
+## Author
+
+Vaibhav Khati
