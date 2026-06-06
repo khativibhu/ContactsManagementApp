@@ -32,8 +32,8 @@ export default async function NavBar() {
                 </>
             ) : (
                 <>
-                   <Link href="/login" className="hover:text-blue-600 mr-5">Login</Link>
-                   <Link href="/register" className="hover:text-blue-600">Register</Link>
+                   <Link href="/login" className="hover:text-blue-600 mr-5 mt-2 mb-2">Login</Link>
+                   <Link href="/register" className="hover:text-blue-600 mt-2 mb-2" >Register</Link>
                 </>
             )
 
