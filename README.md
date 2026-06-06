@@ -187,14 +187,14 @@ Each contact is associated with the authenticated user.
 
 ## Rendering Strategies Used
 
-* SSR
-  Most pages like home page, login page, register page are rendered using SSR.
+### SSR 
+  * Most pages like home page, login page, register page are rendered using SSR.
 
-* SSG
-  About and Features public pages are rendered using SSG.
+### SSG
+  * About and Features public pages are rendered using SSG.
   
-* ISR
-  Statistics public page is rendered using ISR. 
+### ISR
+  * Statistics public page is rendered using ISR. 
 
 
 ## Future Improvements
