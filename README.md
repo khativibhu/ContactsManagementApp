@@ -54,6 +54,11 @@ src/app/
       ├── user.ts
 ├── (app)/
       ├── (auth)/
+             ├── login/
+                    ├── page.tsx
+             ├── register/
+                    ├── db/
+                         ├── route.tsx         ---> API route
       ├── contact/
       ├── layout.tsx
       ├── page.tsx  
@@ -63,8 +68,8 @@ src/app/
       ├── statistics/
       ├── layout.tsx 
 ├── actions/
-       ├── auth.ts
-       ├── contact.ts
+       ├── auth.ts                    ---> Server actions
+       ├── contact.ts                 ---> Server actions
 ├── db/
       ├──auth.ts
       ├──contact.ts
@@ -179,6 +184,18 @@ Authenticated users can:
 Each contact is associated with the authenticated user.
 
 ---
+
+## Rendering Strategies Used
+
+* SSR
+  Most pages like home page, login page, register page are rendered using SSR.
+
+* SSG
+  About and Features public pages are rendered using SSG.
+  
+* ISR
+  Statistics public page is rendered using ISR. 
+
 
 ## Future Improvements
 
