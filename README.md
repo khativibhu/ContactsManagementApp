@@ -190,7 +190,7 @@ Each contact is associated with the authenticated user.
 * Profile Management
 * Contact Categories
 * Dark Mode
-* API Documentation
+* Contact Import/Export (CSV)
 
 ---
 
