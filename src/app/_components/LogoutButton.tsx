@@ -16,6 +16,7 @@ export default function LogoutButton() {
     router.refresh();
     }
     catch(error){
+      if(error instanceof Error && error.message.includes("NEXT_REDIRECT")) return;
       console.log("Logout failed:", error);
     }
   }

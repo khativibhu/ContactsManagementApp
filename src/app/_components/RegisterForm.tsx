@@ -1,5 +1,4 @@
 "use client";
-import axios from 'axios';
 import React from 'react'
 import { SubmitHandler, useForm} from 'react-hook-form'
 
@@ -13,14 +12,26 @@ type RegisterFormData = {
 
 export default function RegisterForm() {
    
-   const {register, handleSubmit, reset} = useForm<RegisterFormData>();
+   const {register, handleSubmit, reset, setError, formState: {errors}} = useForm<RegisterFormData>();
   
    const handleRegister: SubmitHandler<RegisterFormData> = async(data: any) => {
     console.log(data.name);
     console.log(data.email);
-    const res = await axios.post("http://localhost:3000/register/db", data);  //API call
+    const res = await fetch("http://localhost:3000/register/db", {
+      method:"POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data) });      //API call
 
     console.log(res);
+
+    const mydata = await res.json();
+
+    if(!mydata.success){
+      // alert(mydata.error);
+      setError("root", {message: mydata.error});
+      setTimeout( () => window.location.reload(), 500);
+      return;
+    }
 
     document.getElementById("successMsg")!.innerHTML = "User registered successfully";
     reset();
@@ -62,6 +73,8 @@ export default function RegisterForm() {
       </div> 
 
            <p id="successMsg" className="text-green-500 text-center mt-2"></p>
+
+           {errors.root && (<p className="text-red-500 text-center mt-2"> {errors.root.message} </p>)}
 
           <button type="submit" 
           className="mt-3 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"

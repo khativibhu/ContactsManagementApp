@@ -24,7 +24,7 @@ export default function LoginForm() {
      } catch(error){
        console.log(error);
        //alert(error);
-       setErrorMsg(error instanceof Error ? error.message : "Invalid email or password");
+       setErrorMsg(error instanceof Error && error.message.includes("Invalid Credentials") ? error.message : "Something went wrong!");
        setTimeout(() => window.location.reload(), 500);
      }
 
